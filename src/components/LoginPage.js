@@ -1,15 +1,35 @@
 import React from 'react';
+import AppMode from "./../AppMode.js";
 
 class LoginPage extends React.Component {
+
+    constructor(props) {
+        super(props);
+        //Create a ref for the email input DOM element
+        this.emailInputRef = React.createRef();
+    }
+
+    //Focus cursor in email input field when mounted
+    componentDidMount() {
+        this.emailInputRef.current.focus();
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.changeMode(AppMode.FEED);
+        this.props.setUserId(this.emailInputRef.current.value);
+    }
+    
     render() {
         return(
         <div id="loginModeDiv" className="paddedPage">
         <center>
             <h1 />
-            <form id="loginInterface">
+            <form onSubmit={this.handleSubmit}>
             <label htmlFor="emailInput" style={{ padding: 0, fontSize: 24 }}>
                 Email:
                 <input
+                ref={this.emailInputRef} 
                 className="form-control logintext"
                 type="email"
                 placeholder="Enter Email Address"
@@ -33,7 +53,6 @@ class LoginPage extends React.Component {
             <p className="bg-danger" id="feedback" style={{ fontSize: 16 }} />
             <button
                 type="submit"
-                id="loginBtn"
                 className="btncolortheme btn btn-primary btn-block loginbtn">
                 <span id="loginBtnIcon" className="fa fa-sign-in"/>
                 &nbsp;Log In

@@ -3,7 +3,7 @@ import React from 'react';
 class SideMenu extends React.Component {
     render() {
        return (
-        <div id="sideMenu" className="sidenav" >
+        <div id="sideMenu" className="sidenav  menuclosed" >
         {/* SIDE MENU TITLE */}
         <div className="sidenavtitle">
             <img src='http://tiny.cc/chrisprofilepic' height='50' width='50' />

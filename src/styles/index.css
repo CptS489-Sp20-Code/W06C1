@@ -1,4 +1,19 @@
-        /* Styling of the fixed top bar in the app */
+       /* Force an item to span entire height of window */
+       .spanheight {
+         height: 100%;
+       }
+       
+       /* Make an item visible */
+       .visible {
+         display: block;
+       }
+
+       /* Make an item invisible */
+       .invisible {
+         display: none;
+       }
+
+       /* Styling of the fixed top bar in the app */
         .navbar {
           overflow: hidden; /* Don't allow scrolling */
           display: block; /* Occupies its own horizontal space */
@@ -25,11 +40,18 @@
         padding-top: 5px; 
         padding-bottom: 5px;
       }
+      
+      .menuopen {
+        width: 250px;
+      }
 
+      .menuclosed {
+        width: 0px;
+      }
+      
       /* sidenav -- Styling of the side navigation menu */
       .sidenav {
           height: 100%; /* Menu is full height of window */
-          width: 0; /* Menu hidden -- will be opened on click */
           position: fixed; /* Menu stays in place regardless of other content */
           z-index: 150; /* Force the menu to be at front */
           top: 48px; /* Position menu 48 px from top of screen; accomodates top navbar */
@@ -150,7 +172,7 @@
 /* Styling for the divs in the app. Ensures that the content at top isn't obscured by top bar */
  .paddedPage {
       padding: 56px 8px 0px 8px;
-      
+      height: 100%; /* 100% of app */
   }
   
 .hide {
@@ -161,6 +183,10 @@
 .clickable-div 
 {
       cursor: pointer;
+}
+
+.center {
+  text-align: center;
 }
   
 /* Styling for mode bar at the bottom of the page */
